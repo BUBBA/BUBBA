@@ -1,0 +1,45 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main(){
+    int n;          // n is the number of observations
+
+    cout << "Enter the number of observations: ";
+    cin >> n;
+
+    int *v = new int[n];
+    cout << "Enter " << n << " numbers" <<endl;
+
+    for (int i=0; i < n; i++)
+        cin >> v[i];
+
+    cout << endl;
+
+    float sum = 0;
+    float average = 0;
+
+    // Calculating sum and the average of the numbers.
+    for (int i = 0; i < n; i++)
+        sum += v[i];
+
+    cout << "sum = " << sum << endl;
+    average = (float)(sum/n);
+    cout << "Average = " << average << endl;
+
+    //Calculating the variance and the standard deviation of the numbers.
+    float variance = 0 ;
+    for(int i=0; i < n; i++)
+        variance += pow(v[i] - average,2);
+    variance = variance / n;
+
+    float stdDeviation = 0;
+    stdDeviation = sqrt(variance);
+
+    cout << "The standard deviation for the "<< " " << n << " values is = " << stdDeviation << endl;
+
+
+    return 0;
+
+}
